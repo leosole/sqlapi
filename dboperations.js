@@ -17,7 +17,7 @@ async  function  getProduto(productId) {
     let  pool = await  sql.connect(config);
     let  product = await  pool.request()
     .input('input_parameter', sql.Int, productId)
-    .query("SELECT * from Produto where Id = @input_parameter");
+    .query("SELECT * from Produto where Cd_Produto = @input_parameter");
     return  product.recordsets;
   }
   catch (error) {
