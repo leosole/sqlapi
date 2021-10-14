@@ -29,11 +29,11 @@ async  function  addProduto(Produto) {
   try {
     let  pool = await  sql.connect(config);
     let  insertProduct = await  pool.request()
-    .input('Id', sql.Int, Produto.Id)
-    .input('Nome', sql.NVarChar, Produto.Nome)
-    .input('Cor', sql.NVarChar, Produto.Cor)
-    .input('Peso', sql.Float, Produto.Peso)
-    .input('Cidade', sql.NVarChar, Produto.Cidade)
+    // .input('Id', sql.Int, Produto.Id)
+    .input('Nm_Produto', sql.NVarChar, Produto.Nome)
+    .input('Nm_Cor', sql.NVarChar, Produto.Cor)
+    .input('Qt_Peso', sql.Float, Produto.Peso)
+    .input('Nm_Cidade', sql.NVarChar, Produto.Cidade)
     .execute('InsertProdutos');
     return  insertProduct.recordsets;
   }
